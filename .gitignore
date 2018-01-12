@@ -99,3 +99,12 @@ ENV/
 
 # mypy
 .mypy_cache/
+
+.idea/\
+sftp-config.json
+
+# Visual Studio Code
+.vscode/
+
+#custom
+.DS_Store

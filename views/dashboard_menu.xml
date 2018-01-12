@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+
+		<!-- better menu for hr employee -->
+		<menuitem name="Overview" id="menu_hr_employee_overview_full"
+			action="hr.open_view_employee_list_my" 
+			parent="hr.menu_open_view_employee_list_my" 
+			sequence="1"
+		/>
+
+		<!-- better menu for hr department -->
+		<menuitem name="Overview" id="menu_hr_department_overview_full"
+			groups="hr.group_hr_user"
+			action="hr.open_module_tree_department" 
+			parent="hr.menu_hr_department_tree" 
+			sequence="1"
+		/>
+
+	</data>
+</odoo>

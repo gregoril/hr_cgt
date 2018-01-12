@@ -1,0 +1,23 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* hr_cgt
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-01-11 14:50+0000\n"
+"PO-Revision-Date: 2018-01-11 14:50+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: hr_cgt
+#: model:ir.ui.menu,name:hr_cgt.menu_hr_department_overview_full
+#: model:ir.ui.menu,name:hr_cgt.menu_hr_employee_overview_full
+msgid "Overview"
+msgstr "Panoramica"
+
