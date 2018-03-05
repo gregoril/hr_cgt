@@ -17,6 +17,9 @@
     ],
 
     'data': [
+        ## views
+        'views/hr_employee.xml',
+        
         ## security
         #'security/ir.model.access.csv',
 
