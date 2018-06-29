@@ -17,5 +17,13 @@
 			sequence="1"
 		/>
 
+		<!-- better menu for hr contract -->
+		<menuitem name="Overview" id="menu_hr_contract_overview_full"
+			groups="hr.group_hr_user"
+			action="hr_contract.action_hr_contract" 
+			parent="hr_contract.hr_menu_contract" 
+			sequence="1"
+		/>
+
 	</data>
 </odoo>
