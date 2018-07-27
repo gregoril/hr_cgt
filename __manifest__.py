@@ -18,6 +18,8 @@
 
     'data': [
         ## views
+        'views/hr_documents.xml',
+        'views/hr_document_type.xml',
         'views/hr_employee.xml',
         
         ## security
