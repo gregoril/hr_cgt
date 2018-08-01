@@ -21,7 +21,7 @@
                             <field name="employee"/>
 							<field name="document_type"/>
 							<field name="deadline_date"/>
-                            <field name="default_warning_limit_date_hr" readonly="1"/>
+                            <field name="default_warning_limit_date_hr" invisible="1"/>
                         </group>
                     </sheet>
 
@@ -46,7 +46,7 @@
                     <field name="employee"/>
                     <field name="document_type"/>
                     <field name="deadline_date"/>
-                    <field name="default_warning_limit_date_hr" invisible="True"/>
+                    <field name="default_warning_limit_date_hr"  invisible="1"/>
                     <field name="days_left" attrs="{'invisible': [('days_left', '&lt;=', 0)]}"/>
                 </tree>
 
