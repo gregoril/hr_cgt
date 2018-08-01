@@ -2,6 +2,7 @@
 <odoo>
 	<data>
 
+		<!-- employee form -->
 		<record id="view_full_hr_employee_form_inherited" model="ir.ui.view">
 			<field name="name">Full HR Employee form</field>
 			<field name="model">hr.employee</field>
@@ -18,6 +19,8 @@
 			</field>
 		</record>
 
+
+		<!-- employee kanban -->
     	<record id="hr_view_employee_kanban_inherited_doc" model="ir.ui.view">
 			<field name="name">Employee kanban</field>
 			<field name="model">hr.employee</field>
@@ -38,14 +41,17 @@
 					<!-- service buttons -->
 					<div class="o_kanban_button no_position_abs pull-right hr_kanban">
 						<span t-if="record.deadline_warning.raw_value and !record.deadline_expired.raw_value" 
-						data-type="object" data-name="return_action_to_open_empl" href="#" class="oe_kanban_action btn btn-sm btn-warning" data-context="{'xml_id':'act_hr_employee_3_hr_documents'}">
+						data-type="object" data-name="return_action_to_open_empl" href="#" 
+						class="oe_kanban_action btn btn-sm btn-warning" 
+						data-context="{'xml_id':'act_hr_employee_3_hr_documents'}">
 							<field name="deadline_name"/> 
 							<t t-if="record.deadline_total.raw_value &gt; 0"> and <field name="deadline_total"/> other(s)</t>
 						</span>
 
 						<span t-if="record.deadline_expired.raw_value" 
-						data-type="object" data-name="return_action_to_open_empl" href="#" class="oe_kanban_action btn btn-sm btn-danger" data-context="{'xml_id':'act_hr_employee_3_hr_documents'}">
-
+						data-type="object" data-name="return_action_to_open_empl" href="#" 
+						class="oe_kanban_action btn btn-sm btn-danger" 
+						data-context="{'xml_id':'act_hr_employee_3_hr_documents'}">
 							<field name="deadline_name"/> 
 							<t t-if="record.deadline_total.raw_value &gt; 0"> and <field name="deadline_total"/> other(s)</t>
 						</span> 

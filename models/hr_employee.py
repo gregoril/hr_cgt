@@ -5,14 +5,6 @@ from odoo.exceptions import ValidationError
 
 class FullEmployee(models.Model):
 	_inherit = 'hr.employee'
-	
-	# new field
-	driver_vector_info = fields.Text(string='Driver Vector info')
-	log_documents = fields.One2many(
-		comodel_name='hr.documents',
-		inverse_name='employee', 
-		string='Documents'
-	)
 
 
 	@api.multi
@@ -62,6 +54,15 @@ class FullEmployee(models.Model):
 			record.deadline_warning = deadline_warning
 			record.deadline_total = deadline_total -1
 			record.deadline_name = deadline_name
+
+
+	# new field
+	driver_vector_info = fields.Text(string='Driver Vector info')
+	log_documents = fields.One2many(
+		comodel_name='hr.documents',
+		inverse_name='employee', 
+		string='Documents'
+	)
 
 	deadline_expired = fields.Boolean(string='Document Expired', compute=_compute_documents_reminder)
 	deadline_warning = fields.Boolean(string='Document Expiration Warning', compute=_compute_documents_reminder)
