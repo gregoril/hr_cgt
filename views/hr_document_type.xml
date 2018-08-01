@@ -22,7 +22,7 @@
 
  		<!-- document type action -->
 		<record id="view_hr_document_type_action" model="ir.actions.act_window">
-			<field name="name">HR Document Type Action</field>
+			<field name="name">Document Type</field>
 			<field name="res_model">hr.document.type</field>
 			<field name="view_mode">list,form</field>
 		</record>   
