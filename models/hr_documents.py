@@ -8,8 +8,7 @@ import logging
 _logger = logging.getLogger(__name__)
 
 
-class HrEmployee(models.Model):
-
+class FullHrEmployee(models.Model):
     _inherit = "hr.employee"
 
     def _compute_documents_count(self):
@@ -20,10 +19,11 @@ class HrEmployee(models.Model):
 
     documents_count = fields.Integer(compute='_compute_documents_count', string='Contracts')
 
-class HrDocuments(models.Model):
+class FullHrDocuments(models.Model):
     _name = 'hr.documents'
     _inherit = ['hr.job', 'mail.thread']
-    
+
+
     @api.depends('deadline_date')   
     def _compute_days_left(self):
 		"""return a dict with as value for each service an integer
@@ -42,21 +42,30 @@ class HrDocuments(models.Model):
 			else:
 				record.days_left = -1
 
+
+    # new fields
     deadline_date = fields.Date(track_visibility='onchange')
-    days_left = fields.Integer(compute='_compute_days_left',string='Warning Date')
-    employee = fields.Many2one(comodel_name='hr.employee',
-    string='employee',track_visibility='onchange'
-    )
-    document_type = fields.Many2one(comodel_name='hr.document.type',
-    string = 'document type',track_visibility='onchange'
-    )
+    days_left = fields.Integer(string='Warning Date', compute=_compute_days_left)
     default_warning_limit_date_hr = fields.Integer(related='document_type.warning_limit_date_hr') 
+
+    employee = fields.Many2one(
+            comodel_name='hr.employee',
+            string='Employee',
+            track_visibility='onchange'
+        )
+    document_type = fields.Many2one(
+            comodel_name='hr.document.type',
+            string='Document type',
+            track_visibility='onchange'
+        )
     
-    state = fields.Selection(selection=[('todo', 'To do'), ('done', 'Done')],
+    state = fields.Selection(
+            selection=[('todo', 'To do'), ('done', 'Done')],
 			string='Status', default='todo', copy=False, index=True,
 			help='Choose wheter the service is still to be done or not'
-            )
-    
+        )
+
+
     @api.multi
     def todo_state(self):
         for record in self:
@@ -66,6 +75,3 @@ class HrDocuments(models.Model):
     def set_done(self):
         for record in self:
             record.state = 'done'
-
-    
-

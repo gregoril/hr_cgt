@@ -1,77 +1,88 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
 	<data>
-     <!-- form -->
+
+        <!-- document form -->
         <record id="view_hr_documents_form" model="ir.ui.view">
-                <field name="name">HR Documents form</field>
-                <field name="model">hr.documents</field>
-                <field name="arch" type="xml">
-                    <form string="Documents">
-                        <header>
-                            <button string="Set To do" type="object" name="todo_state" attrs="{'invisible': [('state', '=', 'todo')]}"/>
-                            <button string="Set Done"  type="object" name="set_done" attrs="{'invisible': [('state', '=', 'done')]}"/>
-                            <field name="state" widget="statusbar"/>
-                        </header>
-                            <sheet>
-                                <group name="GeneralDetails">
-                                        <field name="employee"/>
-                                        <field name="deadline_date"/>
-                                        <field name="document_type"/>
-                                        <field name="default_warning_limit_date_hr" readonly="1"/>
-                                </group>
-                            </sheet>
+            <field name="name">HR Documents form</field>
+            <field name="model">hr.documents</field>
+            <field name="arch" type="xml">
 
-                             <div class="oe_chatter">
-                                <field name="message_follower_ids" widget="mail_followers"/>
-                                <field name="message_ids" widget="mail_thread" />
-                            </div>
-                    </form>
-                </field>
+                <form string="Documents">
+                    <header>
+                        <button string="Set To do" type="object" name="todo_state" attrs="{'invisible': [('state', '=', 'todo')]}"/>
+                        <button string="Set Done"  type="object" name="set_done" attrs="{'invisible': [('state', '=', 'done')]}"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+
+                    <sheet>
+                        <group name="general_details" string="Document details">
+                            <field name="employee"/>
+							<field name="document_type"/>
+							<field name="deadline_date"/>
+                            <field name="default_warning_limit_date_hr" readonly="1"/>
+                        </group>
+                    </sheet>
+
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread" />
+                    </div>
+                </form>
+
+            </field>
         </record>
 
-        <!-- tree -->
+
+        <!-- document tree -->
         <record id="view_hr_documents_tree" model="ir.ui.view">
-                <field name="name">HR Documents tree</field>
-                <field name="model">hr.documents</field>
-                <field name="arch" type="xml">
-                    <tree string="Documents" decoration-warning="(days_left&gt;0 and days_left&lt;default_warning_limit_date_hr)" decoration-danger="days_left==0" decoration-mute="state=done">
-                        <field name="employee"/>
-                        <field name="deadline_date"/>
-                        <field name="default_warning_limit_date_hr" invisible="True"/>
-                        <field name="days_left" attrs="{'invisible': [('days_left', '&lt;=', 0)]}"/>
-                        <field name="document_type"/>
-                    </tree>
-                </field>
+            <field name="name">HR Documents tree</field>
+            <field name="model">hr.documents</field>
+            <field name="arch" type="xml">
+
+                <tree string="Documents" decoration-warning="(days_left&gt;0 and days_left&lt;default_warning_limit_date_hr)" decoration-danger="days_left==0" decoration-mute="state=done">
+                    <field name="employee"/>
+                    <field name="document_type"/>
+                    <field name="deadline_date"/>
+                    <field name="default_warning_limit_date_hr" invisible="True"/>
+                    <field name="days_left" attrs="{'invisible': [('days_left', '&lt;=', 0)]}"/>
+                </tree>
+
+            </field>
         </record>
 
-        <!-- search -->
+
+        <!-- document search -->
         <record id="hr_contract_view_search" model="ir.ui.view">
             <field name="name">HR Documents search</field>
             <field name="model">hr.documents</field>
             <field name="arch" type="xml">
+
                 <search>
                     <field name="employee"/>
-                    <field name="deadline_date"/>
                     <field name="document_type"/>
+                    <field name="deadline_date"/>
                     <separator />
                     <filter string="Current Employee" name="current_employee" domain="[('employee.active','=',True)]"/>
                     <separator />
                     <group expand="0" string="Group By">
                         <filter string="Employee" domain="[]" context="{'group_by':'employee'}"/>
                     </group>
+
                 </search>
             </field>
 
         </record>
-        
-        <!-- action -->
+
+
+        <!-- document action -->
 		<record id="view_hr_documents_action" model="ir.actions.act_window">
 			<field name="name">HR Documents Action</field>
 			<field name="res_model">hr.documents</field>
 			<field name="view_mode">list,form</field>
 		</record>   
 
-		<!-- menu -->        
+		<!-- document menu -->        
         <menuitem name="Documents"
             id="menu_hr_documents"
 			action="view_hr_documents_action" 
@@ -80,7 +91,7 @@
         />
 
 
-       
+        <!-- kanban actions -->
 		<record id="act_hr_employee_3_hr_documents" model="ir.actions.act_window">
 			<field name="name">Documents</field>
 			<field name="res_model">hr.documents</field>
@@ -97,10 +108,8 @@
                 <data>
                     <xpath expr="//div[@name='button_box']" position="inside">
                         <button name="%(act_hr_employee_3_hr_documents)d"
-                            class="oe_stat_button"
-                            icon="fa-book"
-                            type="action"
-                            groups="hr.group_hr_manager">
+                            class="oe_stat_button" icon="fa-book"
+                            type="action" groups="hr.group_hr_manager">
                                 <field name="documents_count" widget="statinfo" string="Documents"/>
                         </button>
                     </xpath>
