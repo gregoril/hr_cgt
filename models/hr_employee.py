@@ -8,6 +8,13 @@ class FullEmployee(models.Model):
 
 
 	@api.multi
+	def _compute_documents_count(self):
+		docs = self.env['hr.documents']
+		for employee in self:
+			employee.documents_count = docs.search_count([('employee', '=', employee.id)])
+
+
+	@api.multi
 	@api.depends('log_documents')
 	def _compute_documents_reminder(self):
 		today = fields.Date.from_string(fields.Date.today())
@@ -27,7 +34,7 @@ class FullEmployee(models.Model):
 				]
 			)
             
-			# for each documents linked .
+			# for each documents linked
 			for document in log_documents:
 
 				# check deadline by date
@@ -56,8 +63,9 @@ class FullEmployee(models.Model):
 			record.deadline_name = deadline_name
 
 
-	# new field
+	# new fields
 	driver_vector_info = fields.Text(string='Driver Vector info')
+	documents_count = fields.Integer(string='Documents', compute=_compute_documents_count)
 	log_documents = fields.One2many(
 		comodel_name='hr.documents',
 		inverse_name='employee', 

@@ -8,17 +8,6 @@ import logging
 _logger = logging.getLogger(__name__)
 
 
-class FullHrEmployee(models.Model):
-    _inherit = "hr.employee"
-
-    def _compute_documents_count(self):
-        
-        doc = self.env['hr.documents']
-        for employee in self:
-            employee.documents_count = doc.search_count([('employee', '=', employee.id)])
-
-    documents_count = fields.Integer(compute='_compute_documents_count', string='Contracts')
-
 class FullHrDocuments(models.Model):
     _name = 'hr.documents'
     _inherit = ['hr.job', 'mail.thread']
