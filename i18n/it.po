@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-11 14:50+0000\n"
-"PO-Revision-Date: 2018-01-11 14:50+0000\n"
+"POT-Creation-Date: 2018-08-01 14:45+0000\n"
+"PO-Revision-Date: 2018-08-01 14:45+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,8 +16,257 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: hr_cgt
+#: model:ir.ui.view,arch_db:hr_cgt.view_hr_employee_config_form
+msgid "Apply"
+msgstr "Salva"
+
+#. module: hr_cgt
+#: model:ir.ui.view,arch_db:hr_cgt.view_hr_employee_config_form
+msgid "Cancel"
+msgstr "Annulla"
+
+#. module: hr_cgt
+#: model:ir.model.fields,help:hr_cgt.field_hr_documents_state
+msgid "Choose wheter the service is still to be done or not"
+msgstr "Indica se il servizio deve ancora essere fatto oppure no."
+
+#. module: hr_cgt
+#: model:ir.model.fields,field_description:hr_cgt.field_hr_documents_company_id
+msgid "Company"
+msgstr "Azienda"
+
+#. module: hr_cgt
+#: model:ir.ui.menu,name:hr_cgt.view_hr_employee_config_menu
+msgid "Configuration"
+msgstr "Configurazione"
+
+#. module: hr_cgt
+#: model:ir.model.fields,field_description:hr_cgt.field_hr_employee_documents_count
+msgid "Contracts"
+msgstr "Contratti"
+
+#. module: hr_cgt
+#: model:ir.model.fields,field_description:hr_cgt.field_hr_config_create_uid
+#: model:ir.model.fields,field_description:hr_cgt.field_hr_document_type_create_uid
+#: model:ir.model.fields,field_description:hr_cgt.field_hr_documents_create_uid
+msgid "Created by"
+msgstr "Creato da"
+
+#. module: hr_cgt
+#: model:ir.model.fields,field_description:hr_cgt.field_hr_config_create_date
+#: model:ir.model.fields,field_description:hr_cgt.field_hr_document_type_create_date
+#: model:ir.model.fields,field_description:hr_cgt.field_hr_documents_create_date
+msgid "Created on"
+msgstr "Creato il"
+
+#. module: hr_cgt
+#: model:ir.ui.view,arch_db:hr_cgt.hr_contract_view_search
+msgid "Current Employee"
+msgstr "Dipendente attuale"
+
+#. module: hr_cgt
+#: model:ir.ui.view,arch_db:hr_cgt.view_hr_employee_config_form
+msgid "Deadline Date Warning"
+msgstr "Soglia avviso"
+
+#. module: hr_cgt
+#: model:ir.model.fields,field_description:hr_cgt.field_hr_documents_deadline_date
+msgid "Deadline date"
+msgstr "Data scadenza"
+
+#. module: hr_cgt
+#: model:ir.model.fields,field_description:hr_cgt.field_hr_employee_deadline_name
+msgid "Deadline name"
+msgstr "Soglia"
+
+#. module: hr_cgt
+#: model:ir.model.fields,field_description:hr_cgt.field_hr_employee_deadline_total
+msgid "Deadline total"
+msgstr "Soglia Totale"
+
+#. module: hr_cgt
+#: model:ir.model.fields,field_description:hr_cgt.field_hr_config_display_name
+#: model:ir.model.fields,field_description:hr_cgt.field_hr_document_type_display_name
+#: model:ir.model.fields,field_description:hr_cgt.field_hr_documents_display_name
+msgid "Display Name"
+msgstr "Nome Visualizzato"
+
+#. module: hr_cgt
+#: model:ir.ui.menu,name:hr_cgt.menu_hr_document_type
+#: model:ir.ui.view,arch_db:hr_cgt.view_hr_document_type_form
+msgid "Document Type"
+msgstr "Tipo Documento"
+
+#. module: hr_cgt
+#: model:ir.actions.act_window,name:hr_cgt.act_hr_employee_3_hr_documents
+#: model:ir.model.fields,field_description:hr_cgt.field_hr_employee_log_documents
+#: model:ir.ui.menu,name:hr_cgt.menu_hr_documents
+#: model:ir.ui.view,arch_db:hr_cgt.hr_hr_employee_view_form3
+#: model:ir.ui.view,arch_db:hr_cgt.view_hr_documents_form
+#: model:ir.ui.view,arch_db:hr_cgt.view_hr_documents_tree
+msgid "Documents"
+msgstr "Documenti"
+
+#. module: hr_cgt
+#: model:ir.ui.view,arch_db:hr_cgt.view_hr_employee_config_form
+msgid "Documents Deadline Warning"
+msgstr "Soglia Avviso"
+
+#. module: hr_cgt
+#: selection:hr.documents,state:0
+msgid "Done"
+msgstr "Done"
+
+#. module: hr_cgt
+#: model:ir.model.fields,field_description:hr_cgt.field_hr_employee_driver_vector_info
+msgid "Driver Vector info"
+msgstr "Driver Vector info"
+
+#. module: hr_cgt
+#: model:ir.model,name:hr_cgt.model_hr_employee
+#: model:ir.ui.view,arch_db:hr_cgt.hr_contract_view_search
+msgid "Employee"
+msgstr "Dipendente"
+
+#. module: hr_cgt
+#: model:ir.actions.act_window,name:hr_cgt.view_hr_employee_config_action
+msgid "Employee Configuration"
+msgstr "Configuratione Dipendente"
+
+#. module: hr_cgt
+#: model:ir.ui.view,arch_db:hr_cgt.view_hr_employee_config_form
+msgid "Employee Settings"
+msgstr "Impostazioni Dipendente"
+
+#. module: hr_cgt
+#: model:ir.ui.view,arch_db:hr_cgt.hr_contract_view_search
+msgid "Group By"
+msgstr "Raggruppa per"
+
+#. module: hr_cgt
+#: model:ir.actions.act_window,name:hr_cgt.view_hr_document_type_action
+msgid "HR Document Type Action"
+msgstr "HR Document Type Action"
+
+#. module: hr_cgt
+#: model:ir.actions.act_window,name:hr_cgt.view_hr_documents_action
+msgid "HR Documents Action"
+msgstr "HR Documents Action"
+
+#. module: hr_cgt
+#: model:ir.model.fields,field_description:hr_cgt.field_hr_config_id
+#: model:ir.model.fields,field_description:hr_cgt.field_hr_document_type_id
+#: model:ir.model.fields,field_description:hr_cgt.field_hr_documents_id
+msgid "ID"
+msgstr "ID"
+
+#. module: hr_cgt
+#: model:ir.model.fields,field_description:hr_cgt.field_hr_documents_name
+msgid "Job Title"
+msgstr "Qualifica"
+
+#. module: hr_cgt
+#: model:ir.model.fields,field_description:hr_cgt.field_hr_config___last_update
+#: model:ir.model.fields,field_description:hr_cgt.field_hr_document_type___last_update
+#: model:ir.model.fields,field_description:hr_cgt.field_hr_documents___last_update
+msgid "Last Modified on"
+msgstr "Ultima modifica il"
+
+#. module: hr_cgt
+#: model:ir.model.fields,field_description:hr_cgt.field_hr_config_write_uid
+#: model:ir.model.fields,field_description:hr_cgt.field_hr_document_type_write_uid
+#: model:ir.model.fields,field_description:hr_cgt.field_hr_documents_write_uid
+msgid "Last Updated by"
+msgstr "Ultima modifica di"
+
+#. module: hr_cgt
+#: model:ir.model.fields,field_description:hr_cgt.field_hr_config_write_date
+#: model:ir.model.fields,field_description:hr_cgt.field_hr_document_type_write_date
+#: model:ir.model.fields,field_description:hr_cgt.field_hr_documents_write_date
+msgid "Last Updated on"
+msgstr "Ultima modifica il"
+
+#. module: hr_cgt
+#: model:ir.model.fields,field_description:hr_cgt.field_hr_document_type_name
+msgid "Name"
+msgstr "Nome"
+
+#. module: hr_cgt
+#: model:ir.ui.menu,name:hr_cgt.menu_hr_contract_overview_full
 #: model:ir.ui.menu,name:hr_cgt.menu_hr_department_overview_full
 #: model:ir.ui.menu,name:hr_cgt.menu_hr_employee_overview_full
 msgid "Overview"
 msgstr "Panoramica"
+
+#. module: hr_cgt
+#: model:ir.ui.view,arch_db:hr_cgt.view_hr_documents_form
+msgid "Set Done"
+msgstr "Segna come Completato"
+
+#. module: hr_cgt
+#: model:ir.ui.view,arch_db:hr_cgt.view_hr_documents_form
+msgid "Set To do"
+msgstr "Segna come Da Fare"
+
+#. module: hr_cgt
+#: model:ir.model.fields,field_description:hr_cgt.field_hr_documents_state
+msgid "Status"
+msgstr "Stato"
+
+#. module: hr_cgt
+#: selection:hr.documents,state:0
+msgid "To do"
+msgstr "Da Fare"
+
+#. module: hr_cgt
+#: model:ir.model.fields,field_description:hr_cgt.field_hr_document_type_document_type
+msgid "Type"
+msgstr "Tipo"
+
+#. module: hr_cgt
+#: model:ir.model.fields,field_description:hr_cgt.field_hr_documents_days_left
+msgid "Warning Date"
+msgstr "Data Avviso"
+
+#. module: hr_cgt
+#: model:ir.model.fields,field_description:hr_cgt.field_hr_config_default_warning_limit_date_hr
+#: model:ir.model.fields,field_description:hr_cgt.field_hr_document_type_warning_limit_date_hr
+#: model:ir.model.fields,field_description:hr_cgt.field_hr_documents_default_warning_limit_date_hr
+msgid "Warning limit date"
+msgstr "Soglia giorni"
+
+#. module: hr_cgt
+#: model:ir.ui.view,arch_db:hr_cgt.hr_view_employee_kanban_inherited_doc
+msgid "and"
+msgstr "e"
+
+#. module: hr_cgt
+#: model:ir.model.fields,field_description:hr_cgt.field_hr_documents_document_type
+msgid "document type"
+msgstr "tipo documento"
+
+#. module: hr_cgt
+#: model:ir.model.fields,field_description:hr_cgt.field_hr_documents_employee
+msgid "employee"
+msgstr "dipendente"
+
+#. module: hr_cgt
+#: model:ir.model,name:hr_cgt.model_hr_config
+msgid "hr.config"
+msgstr "hr.config"
+
+#. module: hr_cgt
+#: model:ir.model,name:hr_cgt.model_hr_document_type
+msgid "hr.document.type"
+msgstr "hr.document.type"
+
+#. module: hr_cgt
+#: model:ir.model,name:hr_cgt.model_hr_documents
+msgid "hr.documents"
+msgstr "hr.documents"
+
+#. module: hr_cgt
+#: model:ir.ui.view,arch_db:hr_cgt.hr_view_employee_kanban_inherited_doc
+msgid "other(s)"
+msgstr "altro(i)"
 
