@@ -11,4 +11,5 @@ class HrDocumentType(models.Model):
 
     name = fields.Char(required=True)
     document_type = fields.Char(string="Type")
+    warning_limit_date_hr = fields.Integer(string='Warning limit date', default=15)
 

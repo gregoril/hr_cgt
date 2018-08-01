@@ -2,7 +2,7 @@
 <odoo>
 	<data>
 
-    <!-- form -->
+        <!-- form -->
         <record id="view_hr_document_type_form" model="ir.ui.view">
                 <field name="name">HR Document Type form</field>
                 <field name="model">hr.document.type</field>
@@ -12,13 +12,14 @@
                             <group>
                                     <field name="name"/>
                                     <field name="document_type"/>
+                                    <field name="warning_limit_date_hr"/>
                             </group>
                         </sheet>
                     </form>
                 </field>
         </record>
 
- 		<!-- action -->
+ 		<!-- action menu-->
 		<record id="view_hr_document_type_action" model="ir.actions.act_window">
 			<field name="name">HR Document Type Action</field>
 			<field name="res_model">hr.document.type</field>
@@ -32,6 +33,6 @@
 			parent="hr.menu_human_resources_configuration" 
 			sequence="10"
 		/>
-
+        
 	</data>
 </odoo>
