@@ -23,7 +23,7 @@
         'views/hr_employee.xml',
         
         ## security
-        #'security/ir.model.access.csv',
+        'security/ir.model.access.csv',
 
         ## menu
         'views/dashboard_menu.xml',
