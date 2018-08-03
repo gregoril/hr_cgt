@@ -33,7 +33,7 @@ class FullHrDocuments(models.Model):
 
 
     # new fields
-    # name = fields.Char(string='Name')
+    name = fields.Char(string='Name')
     deadline_date = fields.Date(track_visibility='onchange')
     days_left = fields.Integer(string='Warning Date', compute=_compute_days_left)
     default_warning_limit_date_hr = fields.Integer(related='document_type.warning_limit_date_hr') 

@@ -16,12 +16,19 @@
                     </header>
 
                     <sheet>
-                        <group name="general_details" string="Document details">
-                            <!-- <field name="name"/> -->
-                            <field name="employee"/>
-							<field name="document_type"/>
-							<field name="deadline_date"/>
-                            <field name="default_warning_limit_date_hr" invisible="1"/>
+                        <div class="oe_title">
+                            <label for="name"/>
+                            <h1><field name="name" class="oe_inline"/></h1>
+                        </div>
+                        <group name="main_group">
+                            <group name="general_details_group">
+                                <field name="employee"/>
+							    <field name="document_type"/>
+                            </group>
+                            <group name="deadline_details_group">
+							    <field name="deadline_date"/>
+                                <field name="default_warning_limit_date_hr" invisible="1"/>
+                            </group>
                         </group>
                     </sheet>
 
@@ -42,7 +49,7 @@
             <field name="arch" type="xml">
 
                 <tree string="Documents" decoration-warning="(days_left&gt;0 and days_left&lt;default_warning_limit_date_hr)" decoration-danger="days_left==0" decoration-mute="state=done">
-                    <!-- <field name="name"/> -->
+                    <field name="name"/>
                     <field name="employee"/>
                     <field name="document_type"/>
                     <field name="deadline_date"/>
@@ -61,7 +68,7 @@
             <field name="arch" type="xml">
 
                 <search>
-                    <!-- <field name="name"/> -->
+                    <field name="name"/>
                     <field name="employee"/>
                     <field name="document_type"/>
                     <field name="deadline_date"/>
