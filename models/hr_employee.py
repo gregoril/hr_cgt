@@ -6,15 +6,21 @@ from odoo.exceptions import ValidationError
 class FullEmployee(models.Model):
 	_inherit = 'hr.employee'
 	
-	
-	log_documents = fields.One2many('hr.documents', 'employee', string='Documents')
+	# new field
 	driver_vector_info = fields.Text(string='Driver Vector info')
+	log_documents = fields.One2many(
+		comodel_name='hr.documents',
+		inverse_name='employee', 
+		string='Documents'
+	)
 
-	@api.depends('log_documents')
+
 	@api.multi
+	@api.depends('log_documents')
 	def _compute_documents_reminder(self):
 		today = fields.Date.from_string(fields.Date.today())
 		for record in self:
+
 			# init
 			deadline_expired = False
 			deadline_warning = False
@@ -72,11 +78,6 @@ class FullEmployee(models.Model):
 			res.update(
 				context=dict(self.env.context, default_employee=self.id, group_by=False),
 				domain=[('employee', '=', self.id)]
-				)
+			)
 			return res
 		return False
-
-
-
-
-    
