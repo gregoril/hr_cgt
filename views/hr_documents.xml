@@ -22,8 +22,8 @@
                         </div>
                         <group name="main_group">
                             <group name="general_details_group">
-                                <field name="employee"/>
-							    <field name="document_type"/>
+                                <field name="employee" required="True"/>
+							    <field name="document_type" options="{'no_create': True, 'no_create_edit': True}"/>
                             </group>
                             <group name="deadline_details_group">
 							    <field name="deadline_date"/>
