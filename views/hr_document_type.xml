@@ -11,7 +11,6 @@
                 <form string="Document Type">
                     <group>
                         <field name="name"/>
-                        <field name="document_type"/>
                         <field name="warning_limit_date_hr"/>
                     </group>
                 </form>
