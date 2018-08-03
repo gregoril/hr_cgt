@@ -33,7 +33,7 @@
 			action="view_hr_document_type_action" 
 			parent="hr.menu_human_resources_configuration" 
 			sequence="10"
-            groups="fleet.fleet_group_manager"
+            groups="hr.group_hr_manager"
 		/>
         
 	</data>
