@@ -28,11 +28,12 @@
 
 
 		<!-- document type menu -->        
-        <menuitem name="Document Type"
-            id="menu_hr_document_type"
+        <menuitem id="menu_hr_document_type"
+            name="Document Type"
 			action="view_hr_document_type_action" 
 			parent="hr.menu_human_resources_configuration" 
 			sequence="10"
+            groups="fleet.fleet_group_manager"
 		/>
         
 	</data>
