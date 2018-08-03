@@ -92,13 +92,20 @@ msgid "Display Name"
 msgstr "Nome Visualizzato"
 
 #. module: hr_cgt
+#: model:ir.actions.act_window,name:hr_cgt.view_hr_document_type_action
 #: model:ir.ui.menu,name:hr_cgt.menu_hr_document_type
 #: model:ir.ui.view,arch_db:hr_cgt.view_hr_document_type_form
 msgid "Document Type"
 msgstr "Tipo Documento"
 
 #. module: hr_cgt
+#: model:ir.model.fields,field_description:hr_cgt.field_hr_documents_document_type
+msgid "Document type"
+msgstr "Tipo documento"
+
+#. module: hr_cgt
 #: model:ir.actions.act_window,name:hr_cgt.act_hr_employee_3_hr_documents
+#: model:ir.model.fields,field_description:hr_cgt.field_hr_employee_documents_count
 #: model:ir.model.fields,field_description:hr_cgt.field_hr_employee_log_documents
 #: model:ir.ui.menu,name:hr_cgt.menu_hr_documents
 #: model:ir.ui.view,arch_db:hr_cgt.hr_hr_employee_view_form3
