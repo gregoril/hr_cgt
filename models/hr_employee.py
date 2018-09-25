@@ -15,7 +15,6 @@ class FullEmployee(models.Model):
 
 
 	@api.multi
-	@api.depends('log_documents')
 	def _compute_documents_reminder(self):
 		today = fields.Date.from_string(fields.Date.today())
 		for record in self:
