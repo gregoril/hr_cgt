@@ -33,27 +33,43 @@ class FullHrDocuments(models.Model):
 
 
     # new fields
-    name = fields.Char(string='Name', track_visibility='onchange')
-    deadline_date = fields.Date(track_visibility='onchange')
-    days_left = fields.Integer(string='Warning Date', compute=_compute_days_left)
-    default_warning_limit_date_hr = fields.Integer(related='document_type.warning_limit_date_hr') 
+    name = fields.Char(
+        string='Name', required=True,
+        track_visibility='onchange'
+    )
+
+    deadline_date = fields.Date(
+        string='Deadline date',
+        track_visibility='onchange'
+    )
+
+    default_warning_limit_date_hr = fields.Integer(
+        related='document_type.warning_limit_date_hr'
+    )
 
     employee = fields.Many2one(
-            comodel_name='hr.employee',
-            string='Employee',
-            track_visibility='onchange'
-        )
+        comodel_name='hr.employee',
+        string='Employee',
+        track_visibility='onchange'
+    )
+
     document_type = fields.Many2one(
-            comodel_name='hr.document.type',
-            string='Document type',
-            track_visibility='onchange'
-        )
+        comodel_name='hr.document.type',
+        string='Document type',
+        track_visibility='onchange',
+        required=True
+    )
     
     state = fields.Selection(
-            selection=[('todo', 'To do'), ('done', 'Done')],
-			string='Status', default='todo', copy=False, index=True,
-			help='Choose wheter the service is still to be done or not'
-        )
+        selection=[('todo', 'To do'), ('done', 'Done')],
+        string='Status', default='todo', copy=False, index=True
+    )
+
+    # computed fields
+    days_left = fields.Integer(
+        string='Warning Date',
+        compute=_compute_days_left
+    )
 
 
     @api.multi

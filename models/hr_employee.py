@@ -64,18 +64,38 @@ class FullEmployee(models.Model):
 
 
 	# new fields
-	driver_vector_info = fields.Text(string='Driver Vector info')
-	documents_count = fields.Integer(string='Documents', compute=_compute_documents_count)
+	driver_vector_info = fields.Text(
+		string='Driver Vector info'
+	)
+
+	documents_count = fields.Integer(
+		string='Documents',
+		compute=_compute_documents_count
+	)
+
 	log_documents = fields.One2many(
 		comodel_name='hr.documents',
 		inverse_name='employee', 
 		string='Documents'
 	)
 
-	deadline_expired = fields.Boolean(string='Document Expired', compute=_compute_documents_reminder)
-	deadline_warning = fields.Boolean(string='Document Expiration Warning', compute=_compute_documents_reminder)
-	deadline_total = fields.Integer(compute=_compute_documents_reminder)
-	deadline_name = fields.Char(compute=_compute_documents_reminder)
+	deadline_expired = fields.Boolean(
+		string='Document Expired',
+		compute=_compute_documents_reminder
+	)
+
+	deadline_warning = fields.Boolean(
+		string='Document Expiration Warning',
+		compute=_compute_documents_reminder
+	)
+
+	deadline_total = fields.Integer(
+		compute=_compute_documents_reminder
+	)
+
+	deadline_name = fields.Char(
+		compute=_compute_documents_reminder
+	)
 	
     
 	@api.multi
