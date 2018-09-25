@@ -36,10 +36,10 @@
 					<field name="deadline_total"/>
 				</xpath>
 				
-				<xpath expr="//div[@class='oe_kanban_details']" position="after">
+				<!-- <xpath expr="//div[@class='oe_kanban_details']" position="after">  -->
 
 					<!-- service buttons -->
-					<div class="o_kanban_button no_position_abs pull-right hr_kanban">
+					<!-- <div class="o_kanban_button no_position_abs pull-right hr_kanban">
 						<span t-if="record.deadline_warning.raw_value and !record.deadline_expired.raw_value" 
 						data-type="object" data-name="return_action_to_open_empl" href="#" 
 						class="oe_kanban_action btn btn-sm btn-warning" 
@@ -57,7 +57,7 @@
 						</span> 
 					</div>
 
-				</xpath>
+				</xpath> -->
 
 			</field>
 		</record>
