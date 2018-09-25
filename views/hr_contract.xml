@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <!-- hr contract form -->
+        <record id="view_full_hr_contract_form_inherited" model="ir.ui.view">
+            <field name="name">Full HR Contract form</field>
+            <field name="model">hr.contract</field>
+            <field name="inherit_id" ref="hr_contract.hr_contract_view_form" />
+            <field name="priority">40</field>
+            <field name="arch" type="xml">
+
+                <field name="advantages" position="replace"/>
+
+            </field>
+        </record>
+
+    </data>
+</odoo>

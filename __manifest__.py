@@ -13,11 +13,12 @@
     'version': '10.0.1.0.0',
 
     'depends': [
-        'hr', 'hr_contract'
+        'hr', 'hr_contract', 'hr_holidays'
     ],
 
     'data': [
         ## views
+        'views/hr_contract.xml',
         'views/hr_documents.xml',
         'views/hr_document_type.xml',
         'views/hr_employee.xml',
