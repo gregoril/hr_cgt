@@ -10,7 +10,6 @@ _logger = logging.getLogger(__name__)
 
 class FullHrDocuments(models.Model):
     _name = 'hr.documents'
-    _inherit = ['hr.job', 'mail.thread']
 
 
     @api.depends('deadline_date')   
