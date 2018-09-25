@@ -66,16 +66,16 @@
                     <field name="name"/>
                     <field name="employee"/>
                     <field name="document_type"/>
-                    <field name="deadline_date"/>
-                    <separator />
-                    <filter string="Current Employee" name="current_employee"
-                        domain="[('employee.active','=',True)]"/>
-                    <separator />
-                    <group expand="0" string="Group By">
-                        <filter string="Employee" domain="[]" context="{'group_by':'employee'}"/>
-                    </group>
+                    <!-- <field name="deadline_date"/> -->
 
+                    <filter string="My documents" name="my_documents" domain="[('employee','=',uid)]"/>
+
+                    <group expand="0" string="Group By">
+                        <filter string="Employee" name="group_employee" domain="[]" context="{'group_by':'employee'}"/>
+                        <filter string="Document type" name="group_document_type" domain="[]" context="{'group_by':'document_type'}"/>
+                    </group>
                 </search>
+
             </field>
 
         </record>
