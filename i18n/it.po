@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-01 22:30+0000\n"
-"PO-Revision-Date: 2018-08-01 22:30+0000\n"
+"POT-Creation-Date: 2018-09-26 11:30+0000\n"
+"PO-Revision-Date: 2018-09-26 11:30+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -92,6 +92,16 @@ msgid "Display Name"
 msgstr "Nome Visualizzato"
 
 #. module: hr_cgt
+#: model:ir.model.fields,field_description:hr_cgt.field_hr_employee_deadline_warning
+msgid "Document Expiration Warning"
+msgstr "Avviso scadenza documento"
+
+#. module: hr_cgt
+#: model:ir.model.fields,field_description:hr_cgt.field_hr_employee_deadline_expired
+msgid "Document Expired"
+msgstr "Documento scaduto"
+
+#. module: hr_cgt
 #: model:ir.actions.act_window,name:hr_cgt.view_hr_document_type_action
 #: model:ir.ui.menu,name:hr_cgt.menu_hr_document_type
 #: model:ir.ui.view,arch_db:hr_cgt.view_hr_document_type_form
@@ -100,6 +110,7 @@ msgstr "Tipo Documento"
 
 #. module: hr_cgt
 #: model:ir.model.fields,field_description:hr_cgt.field_hr_documents_document_type
+#: model:ir.ui.view,arch_db:hr_cgt.hr_contract_view_search
 msgid "Document type"
 msgstr "Tipo documento"
 
@@ -117,7 +128,7 @@ msgstr "Documenti"
 #. module: hr_cgt
 #: model:ir.ui.view,arch_db:hr_cgt.view_hr_employee_config_form
 msgid "Documents Deadline Warning"
-msgstr "Soglia Avviso"
+msgstr "Giorni di Avviso"
 
 #. module: hr_cgt
 #: selection:hr.documents,state:0
@@ -195,6 +206,11 @@ msgid "Last Updated on"
 msgstr "Ultima modifica il"
 
 #. module: hr_cgt
+#: model:ir.ui.view,arch_db:hr_cgt.hr_contract_view_search
+msgid "My documents"
+msgstr "I miei documenti"
+
+#. module: hr_cgt
 #: model:ir.model.fields,field_description:hr_cgt.field_hr_document_type_name
 #: model:ir.model.fields,field_description:hr_cgt.field_hr_documents_name
 msgid "Name"
@@ -204,6 +220,7 @@ msgstr "Nome"
 #: model:ir.ui.menu,name:hr_cgt.menu_hr_contract_overview_full
 #: model:ir.ui.menu,name:hr_cgt.menu_hr_department_overview_full
 #: model:ir.ui.menu,name:hr_cgt.menu_hr_employee_overview_full
+#: model:ir.ui.menu,name:hr_cgt.menu_hr_holidays_overview_full
 msgid "Overview"
 msgstr "Panoramica"
 
@@ -242,7 +259,7 @@ msgstr "Giorni alla scadenza"
 #: model:ir.model.fields,field_description:hr_cgt.field_hr_document_type_warning_limit_date_hr
 #: model:ir.model.fields,field_description:hr_cgt.field_hr_documents_default_warning_limit_date_hr
 msgid "Warning limit date"
-msgstr "Soglia giorni"
+msgstr "Giorni di Avviso"
 
 #. module: hr_cgt
 #: model:ir.ui.view,arch_db:hr_cgt.hr_view_employee_kanban_inherited_doc
