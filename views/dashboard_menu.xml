@@ -33,5 +33,29 @@
 			sequence="1"
 		/>
 
+		<!-- better menu for hr attendance -->
+		<record id="hr_attendance.menu_hr_attendance_root" model="ir.ui.menu">
+            <field name="parent_id" ref="hr.menu_hr_root"/>
+            <field name="sequence">10</field>
+        </record>
+
+		<record id="hr_attendance.menu_hr_attendance_settings" model="ir.ui.menu">
+            <field name="parent_id" ref="hr.menu_human_resources_configuration"/>
+			<field name="name">Attendance</field>
+		</record>
+		<record id="hr_attendance.menu_hr_attendance_report" model="ir.ui.menu">
+            <field name="parent_id" ref="hr.menu_hr_reporting_timesheet"/>
+			<field name="name">Attendances</field>
+		</record>
+		<record id="hr_attendance.menu_hr_attendance_view_employees_kanban" model="ir.ui.menu">
+            <field name="active" eval="False"/>
+		</record>
+		<record id="hr_attendance.menu_hr_attendance_view_attendances" model="ir.ui.menu">
+            <field name="parent_id" ref="hr_attendance.menu_hr_attendance_root"/>
+		</record>
+		<record id="hr_attendance.menu_hr_attendance_my_attendances" model="ir.ui.menu">
+            <field name="parent_id" ref="hr_attendance.menu_hr_attendance_manage_attendances"/>
+		</record>
+		
 	</data>
 </odoo>

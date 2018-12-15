@@ -13,22 +13,24 @@
     'version': '10.0.1.0.0',
 
     'depends': [
-        'hr', 'hr_contract', 'hr_holidays'
+        'hr', 'hr_contract', 'hr_holidays',
+        'hr_attendance'
     ],
 
     'data': [
-        ## views
+        # views
         'views/hr_contract.xml',
         'views/hr_documents.xml',
         'views/hr_document_type.xml',
         'views/hr_employee.xml',
-        
-        ## security
+
+        # security
         'security/ir.model.access.csv',
 
-        ## menu
+        # menu
         'views/dashboard_menu.xml',
     ],
 
     'installable': True,
+    'application': True,
 }
