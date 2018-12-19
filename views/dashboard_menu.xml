@@ -35,9 +35,9 @@
 
 		<!-- better menu for hr attendance -->
 		<record id="hr_attendance.menu_hr_attendance_root" model="ir.ui.menu">
-            <field name="parent_id" ref="hr.menu_hr_root"/>
-            <field name="sequence">10</field>
-        </record>
+			<field name="parent_id" ref="hr.menu_hr_root"/>
+			<field name="sequence">10</field>
+		</record>
 
 		<record id="hr_attendance.menu_hr_attendance_settings" model="ir.ui.menu">
             <field name="parent_id" ref="hr.menu_human_resources_configuration"/>

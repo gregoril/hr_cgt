@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<data>
+
+		
+		<!-- Tree view for "model" -->
+		<record id="view_hr_attendance_day_tree" model="ir.ui.view">
+			<field name="name">view.hr.attendance.day.tree</field>
+			<field name="model">hr.attendance.day</field>
+			<field name="type">tree</field>
+			<field name="mode">primary</field>
+			<field name="priority" eval="16" />
+			<field name="active" eval="True" />
+			<field name="arch" type="xml">
+				<tree string="model_tree" create="1" delete="1" edit="1" default_order="day desc">
+					<field name="employee_id" />
+					<field name="day" />
+					<field name="worked_hours" />
+					<field name="break_hours" />
+					<field name="check_in" />
+					<field name="check_out" />
+				</tree>
+			</field>
+		</record>
+		
+		<!-- Form view for "model" -->
+		<record id="view_hr_attendance_day_form" model="ir.ui.view">
+			<field name="name">view.hr.attendance.day.form</field>
+			<field name="model">hr.attendance.day</field>
+			<field name="type">form</field>
+			<field name="mode">primary</field>
+			<field name="priority" eval="16" />
+			<field name="active" eval="True" />
+			<field name="arch" type="xml">
+				<form string="hr_attendance_day_form" create="1" delete="1" edit="1">
+					<header>
+					</header>
+					<sheet>
+						<div class="oe_title">
+							<h1>
+								<field name="employee_id" class="oe_inline"/>
+								<span> - </span>
+								<field name="day" class="oe_inline"/>
+							</h1>
+						</div>
+
+						<group>
+							<group>
+								<field name="worked_hours" />
+								<field name="break_hours" />
+							</group>
+							<group>
+								<field name="check_in" />
+								<field name="check_out" />
+							</group>
+						</group>
+						<group>
+							<field name="attendance_ids" />
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+		
+		<!-- Search view for "model" -->
+		<record id="view_hr_attendance_day_search" model="ir.ui.view">
+			<field name="name">view.hr.attendance.day.search</field>
+			<field name="model">hr.attendance.day</field>
+			<field name="type">search</field>
+			<field name="mode">primary</field>
+			<field name="priority" eval="16" />
+			<field name="active" eval="True" />
+			<field name="arch" type="xml">
+				<search string="hr_attendance_day_search">
+					<field name="day" />
+					<field name="employee_id" />
+					
+				</search>
+			</field>
+		</record>
+		
+		<!-- Main window action for "model" -->
+		<record id="action_hr_attendance_day_act_window" model="ir.actions.act_window">
+			<field name="type">ir.actions.act_window</field>
+			<field name="name">Attendances by day</field>
+			<field name="res_model">hr.attendance.day</field>
+			<field name="view_mode">tree,form</field>
+			<field name="view_type">form</field>
+			<field name="target">current</field>
+			<field name="domain">[]</field>
+			<field name="search_view_id" ref="view_hr_attendance_day_search" />
+			<field name="help" type="html">
+				<p class="oe_view_nocontent_create">
+					Employee Attendances by day
+				</p>
+			</field>
+		</record>
+		
+		<!-- Main menu for "model" -->
+		<record id="menu_hr_attendance_day" model="ir.ui.menu" >
+			<field name="name">Attendances by day</field>
+			<field name="sequence" eval="5" />
+			<field name="action" ref="action_hr_attendance_day_act_window" />
+			<field name="parent_id" ref="hr_attendance.menu_hr_attendance_root" />
+		</record>
+
+	</data>
+</odoo>

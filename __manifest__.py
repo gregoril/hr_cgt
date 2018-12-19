@@ -19,6 +19,7 @@
 
     'data': [
         # views
+        'views/hr_attendance_day.xml',
         'views/hr_contract.xml',
         'views/hr_documents.xml',
         'views/hr_document_type.xml',
