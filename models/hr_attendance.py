@@ -6,6 +6,10 @@ from odoo.tools import DEFAULT_SERVER_DATE_FORMAT, \
 import pytz
 from datetime import datetime
 
+import logging
+import pprint
+_logger = logging.getLogger(__name__)
+
 
 class FullAttendance(models.Model):
     _inherit = 'hr.attendance'
@@ -59,5 +63,39 @@ class FullAttendance(models.Model):
             )
 
         result.attendance_day_id = attendance_day.id
+
+        return result
+
+    @api.multi
+    def unlink(self):
+        """
+            Delete all record(s) from recordset
+            return True on success, False otherwise
+
+            @return: True on success, False otherwise
+
+            #TODO: process before delete resource
+        """
+
+        for r in self:
+            attendance_day = self.env['hr.attendance.day'].search([
+                ('attendance_id', '=', r.id)
+            ])
+            if not attendance_day:
+                continue
+
+            difss = list(set(attendance_day.attendance_ids.ids)-set(self.ids))
+
+            _logger.info(pprint.pformat(difss))
+
+            # switch or delete
+            if difss:
+                attendance_day.write({
+                    'attendance_id': difss[0]
+                })
+            else:
+                attendance_day.unlink()
+
+        result = super(FullAttendance, self).unlink()
 
         return result

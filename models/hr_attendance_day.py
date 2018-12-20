@@ -96,7 +96,9 @@ class FullAttendanceDay(models.Model):
         string=u'Day',
         compute=_compute_day,
         store=True,
-        readonly=True
+        readonly=True,
+        required=True,
+        default=fields.Date.context_today,
     )
 
     worked_hours = fields.Float(
@@ -146,4 +148,26 @@ class FullAttendanceDay(models.Model):
         'hr.attendance',
         string="Creating attendance",
         required=True,
+        readonly=True
     )
+
+    @api.multi
+    def unlink(self):
+        """
+            Delete all record(s) from recordset
+            return True on success, False otherwise
+
+            @return: True on success, False otherwise
+
+            #TODO: process before delete resource
+        """
+
+        related_attendances = self.env['hr.attendance'].search([
+            ('attendance_day_id', 'in', self.ids)
+        ])
+
+        result = super(FullAttendanceDay, self).unlink()
+
+        related_attendances.unlink()
+
+        return result
