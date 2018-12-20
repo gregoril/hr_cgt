@@ -40,8 +40,11 @@ class FullAttendanceDay(models.Model):
                  'attendance_id.check_in')
     def _compute_day(self):
 
-        user_tz = self.env.user.tz or pytz.utc
-        local = pytz.timezone(user_tz)
+        # detect timezone
+        if self.env.user.tz:
+            local = pytz.timezone(self.env.user.tz)
+        else:
+            local = pytz.utc
 
         for r in self:
 

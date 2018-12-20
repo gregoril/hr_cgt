@@ -38,8 +38,11 @@ class FullAttendance(models.Model):
 
         result = super(FullAttendance, self).create(values)
 
-        user_tz = self.env.user.tz or pytz.utc
-        local = pytz.timezone(user_tz)
+        # detect timezone
+        if self.env.user.tz:
+            local = pytz.timezone(self.env.user.tz)
+        else:
+            local = pytz.utc
 
         day = datetime.strftime(
             pytz.utc.localize(
