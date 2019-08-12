@@ -14,7 +14,53 @@ class FullAttendanceDay(models.Model):
     _description = "Attendance by Day"
     _order = "day desc"
 
-   
+    _sql_constraints = [
+        (
+            'employee_day_unique',
+            'unique(employee_id, day)',
+            'Day be unique for employee'
+        ),
+    ]
+
+    # Fields
+
+    day = fields.Date(
+        string=u'Day',
+        compute=_compute_day,
+        store=True,
+        readonly=True,
+        required=True,
+        default=fields.Date.context_today,
+    )
+
+    worked_hours = fields.Float(
+        string='Worked Hours',
+        compute=_compute_day,
+        store=True,
+        readonly=True
+    )
+
+    break_hours = fields.Float(
+        string='Break Hours',
+        compute=_compute_day,
+        store=True,
+        readonly=True
+    )
+
+    check_in = fields.Datetime(
+        string="Check In",
+        compute=_compute_day,
+        store=True,
+        readonly=True
+    )
+
+    check_out = fields.Datetime(
+        string="Check Out",
+        compute=_compute_day,
+        store=True,
+        readonly=True
+    )
+
     employee_id = fields.Many2one(
         'hr.employee',
         string="Employee",
@@ -51,11 +97,12 @@ class FullAttendanceDay(models.Model):
                 ),
             }))
         return result
-    
+
     @api.depends('attendance_ids.check_in',
                  'attendance_ids.check_out',
                  'attendance_id.check_in')
     def _compute_day(self):
+
         # detect timezone
         if self.env.user.tz:
             local = pytz.timezone(self.env.user.tz)
@@ -129,41 +176,3 @@ class FullAttendanceDay(models.Model):
         related_attendances.unlink()
 
         return result
-    # Fields
-
-    day = fields.Date(
-        string=u'Day',
-        compute=_compute_day,
-        store=True,
-        readonly=True,
-        required=True,
-        default=fields.Date.context_today,
-    )
-
-    worked_hours = fields.Float(
-        string='Worked Hours',
-        compute=_compute_day,
-        store=True,
-        readonly=True
-    )
-
-    break_hours = fields.Float(
-        string='Break Hours',
-        compute=_compute_day,
-        store=True,
-        readonly=True
-    )
-
-    check_in = fields.Datetime(
-        string="Check In",
-        compute=_compute_day,
-        store=True,
-        readonly=True
-    )
-
-    check_out = fields.Datetime(
-        string="Check Out",
-        compute=_compute_day,
-        store=True,
-        readonly=True
-    )

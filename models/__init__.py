@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-import hr_documents
-import hr_document_type
-import hr_employee
-import hr_attendance
-import hr_attendance_day
+from . import hr_documents
+from . import hr_document_type
+from . import hr_employee
+from . import hr_attendance_day
+from . import hr_attendance

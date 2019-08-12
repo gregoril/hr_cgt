@@ -2,9 +2,6 @@
 from odoo import models, fields, api, _
 from odoo.exceptions import ValidationError
 
-import logging
-_logger = logging.getLogger(__name__)
-
 
 class FullHrDocumentType(models.Model):
     _name = 'hr.document.type'

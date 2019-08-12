@@ -1,16 +1,17 @@
 # -*- coding: utf-8 -*-
 {
-    'name': 'Cogito Employee Full',
+    'name': 'Employee Full',
     'description': """
         Jobs, Departments and Employees Details from OCA and custom.
+        Original module from Cogito
     """,
 
-    'author': "Cogito",
-    'website': "http://www.cogitoweb.it",
+    'author': "Cogito / IDSYS",
+    
 
-    'license': 'AGPL-3',
+    'license': 'OPL-1',
     'category': 'Human Resources',
-    'version': '10.0.1.0.0',
+    'version': '0.1',
 
     'depends': [
         'hr', 'hr_contract', 'hr_holidays',

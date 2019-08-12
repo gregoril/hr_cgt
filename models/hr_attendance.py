@@ -6,9 +6,7 @@ from odoo.tools import DEFAULT_SERVER_DATE_FORMAT, \
 import pytz
 from datetime import datetime
 
-import logging
 import pprint
-_logger = logging.getLogger(__name__)
 
 
 class FullAttendance(models.Model):

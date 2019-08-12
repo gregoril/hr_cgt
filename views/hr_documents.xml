@@ -43,7 +43,10 @@
             <field name="model">hr.documents</field>
             <field name="arch" type="xml">
 
-                <tree string="Documents" decoration-warning="(days_left&gt;0 and days_left&lt;default_warning_limit_date_hr)" decoration-danger="days_left==0" decoration-mute="state=done">
+                <!--
+                    <tree string="Documents" decoration-warning="(days_left&gt;0 and days_left&lt;default_warning_limit_date_hr)" decoration-danger="days_left==0" decoration-mute="state=done">
+                -->
+                <tree string="Documents" >
                     <field name="name"/>
                     <field name="employee"/>
                     <field name="document_type"/>
